@@ -75,13 +75,17 @@ function keyPressed() {
 		startGame();
 	} else if (gameScreen === PLAY) {
 		//we're checking if the snake is either one cell long or the user's not trying to go directly backwards before we add the input to the moveQueue
-		if ((key === "W" || keyCode === UP_ARROW) && (snake.length === 1 || snake.direction != SOUTH)) {
+		if ((key === "W" || keyCode === UP_ARROW) &&
+			(snake.length === 1 || moveQueue[moveQueue.length - 1] != SOUTH)) {
 			moveQueue.push(NORTH);
-		} else if ((key === "S" || keyCode === DOWN_ARROW) && (snake.length === 1 || snake.direction != NORTH)) {
+		} else if ((key === "S" || keyCode === DOWN_ARROW) &&
+			(snake.length === 1 || moveQueue[moveQueue.length - 1] != NORTH)) {
 			moveQueue.push(SOUTH);
-		} else if ((key === "A" || keyCode === LEFT_ARROW) && (snake.length === 1 || snake.direction != EAST)) {
+		} else if ((key === "A" || keyCode === LEFT_ARROW) &&
+			(snake.length === 1 || moveQueue[moveQueue.length - 1] != EAST)) {
 			moveQueue.push(WEST);
-		} else if ((key === "D" || keyCode === RIGHT_ARROW) && (snake.length === 1 || snake.direction != WEST)) {
+		} else if ((key === "D" || keyCode === RIGHT_ARROW) &&
+			(snake.length === 1 || moveQueue[moveQueue.length - 1] != WEST)) {
 			moveQueue.push(EAST);
 		}
 	} else if (gameScreen === END && key === " ") {
