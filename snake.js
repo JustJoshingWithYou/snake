@@ -6,7 +6,7 @@ function Snake() { //object for the snake
 		this.direction = null;
 		this.amountToGrow = 0;
 	}
-	this.display = function() { //loop through every cell an draw it
+	this.display = function() { //loop through every cell and draw it
 		fill("#a1deff");
 		for (var i = 0; i < this.length; i++) {
 			rect(this.xs[i], this.ys[i], CELL_SIZE, CELL_SIZE);
